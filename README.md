@@ -6,13 +6,13 @@
  git clone https://github.com/docker/getting-started-app.git
 ```
 
-1. Change to App Directory:
+2. Change to App Directory:
 
 ```bash
 cd getting-started-app/
 ```
 
-1. Write the Dockerfile
+3. Write the Dockerfile
 
 ```bash
 vim Dockerfile
@@ -28,7 +28,7 @@ CMD     ["src/index.js"]
 EXPOSE  3000
 ```
 
-1. Build the Docker image
+4. Build the Docker image
 
 ```bash
 docker build -t to-do-app .
@@ -37,16 +37,28 @@ docker build -t to-do-app .
 # . : directory where image will be built ( current working directory)
 ```
 
-1. Run the App container
+5. Run the App container
 
 ```bash
 docker run -d -p 3000:3000 to-do-app
 ```
 
-1. Check your App
+6. Check your App
 
 ```
 URL: localhost:3000
 ```
 
-1. Push the Docker image to Registry
+7. Push the Docker image to Registry
+
+```bash
+# 1.login to your docker hub repository
+docker login
+
+# 2.change the tag of your image so you can push it to your repository 
+docker tag to-do-app:latest ibrahimmintal/to-do-app:v1.0
+
+# 3. Push Image to Docker Hub
+docker push ibrahimmintal/to-do-app:v1.0
+
+```
